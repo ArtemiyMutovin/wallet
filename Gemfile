@@ -34,9 +34,19 @@ gem "bootsnap", require: false
 
 # gem "image_processing", "~> 1.2"
 
+gem 'rubocop'
+gem 'rubocop-performance'
+gem 'rubocop-rails'
+gem 'rubocop-require_tools', '~> 0.1.2'
+gem 'rubocop-rspec'
+
+gem 'devise', '~> 4.0'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem 'factory_bot_rails'
+  gem 'rails-controller-testing'
+  gem 'rspec-rails', git: 'git@github.com:rspec/rspec-rails.git', branch: '6-0-maintenance'
 end
 
 group :development do
