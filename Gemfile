@@ -55,6 +55,8 @@ group :development do
   # gem "rack-mini-profiler"
 
   # gem "spring"
+
+  gem 'letter_opener'
 end
 
 group :test do
