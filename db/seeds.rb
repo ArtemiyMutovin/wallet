@@ -8,10 +8,9 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 User.destroy_all
-Account.destroy_all
 
 User.create([{ first_name: 'David', last_name: 'Brown',
                email: 'david@mail', password: 123_456 },
              { first_name: 'Mikhail', last_name: 'Viktor',
                email: 'mikhail@mail', password: 123_456 }])
-Account.create([{ name: 'DB77', user: User.first }, { name: 'MK11', user: User.last }])
+

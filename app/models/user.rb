@@ -9,8 +9,6 @@ class User < ApplicationRecord
          :confirmable,
          :trackable
 
-  has_one :account, dependent: :destroy
-
   validates :email, uniqueness: { case_sensitive: false }
   validates :first_name, presence: true
   validates :last_name, presence: true
