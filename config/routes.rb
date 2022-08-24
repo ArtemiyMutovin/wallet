@@ -1,6 +1,10 @@
-Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+# frozen_string_literal: true
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+Rails.application.routes.draw do
+
+  Rails.application.routes.default_url_options[:host] = 'XXX'
+
+  devise_for :users, path: :users, path_names: { sign_in: :login, sign_out: :logout, sign_up: :signup }
+
+  root to: 'accounts#index'
 end
