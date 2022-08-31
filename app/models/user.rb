@@ -20,6 +20,10 @@ class User < ApplicationRecord
   private
 
   def set_account
-    Account.create!(number: (0...3).map { rand(100) }.join, user_id: id)
+    Account.create(number: random, user_id: id)
+  end
+
+  def random
+    (0...3).map { rand(100) }.join
   end
 end

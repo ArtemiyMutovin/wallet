@@ -4,14 +4,14 @@ RSpec.describe AccountsController, type: :controller do
   let(:user) { create(:user) }
   let(:account) { create(:account, user: user) }
 
-  describe 'GET #index' do
+  describe 'GET #show' do
     before do
       sign_in(user)
-      get :index
+      get :show
     end
 
-    it 'renders index view' do
-      expect(response).to render_template :index
+    it 'renders show view' do
+      expect(response).to render_template :show
     end
   end
 end
