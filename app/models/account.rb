@@ -1,5 +1,6 @@
 class Account < ApplicationRecord
   belongs_to :user
+  has_many :credits, dependent: :destroy
 
   validates :number, uniqueness: { case_sensitive: false }
   validates :balance, presence: true

@@ -12,6 +12,7 @@ class User < ApplicationRecord
   after_create :set_account
 
   has_one :account, dependent: :destroy
+  has_many :credits, dependent: :destroy
 
   validates :email, uniqueness: { case_sensitive: false }
   validates :first_name, presence: true
