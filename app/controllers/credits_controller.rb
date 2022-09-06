@@ -10,6 +10,7 @@ class CreditsController < ApplicationController
     @credit.user = current_user
 
     if @credit.save
+      account.increase_balance(@credit.debts)
       redirect_to root_path(@account)
     else
       render :new

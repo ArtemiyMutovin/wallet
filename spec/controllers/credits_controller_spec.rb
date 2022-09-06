@@ -27,12 +27,12 @@ RSpec.describe CreditsController, type: :controller do
 
     context 'with valid attributes' do
       it 'saves a new credit in database' do
-        expect { post :create, params: { credit: attributes_for(:credit) } }
+        expect { post :create, params: { credit: { debts: 500, user_id: user, account_id: account } } }
           .to change(Credit, :count).by(1)
       end
 
       it 'redirects to show view' do
-        post :create, params: { credit: attributes_for(:credit) }
+        post :create, params: { credit: { debts: 500, user_id: user, account_id: account } }
         expect(response).to redirect_to root_path(assigns(:account))
       end
     end

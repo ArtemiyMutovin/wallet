@@ -12,4 +12,14 @@ RSpec.describe Account, type: :model do
 
     it { is_expected.to validate_uniqueness_of(:number).case_insensitive }
   end
+
+  describe 'increase balance' do
+    let(:user) { create(:user) }
+    let(:account) { create(:account, user: user) }
+
+    it 'add credits in account balance' do
+      account.increase_balance(1000)
+      expect(account.balance).to eq 1100
+    end
+  end
 end
