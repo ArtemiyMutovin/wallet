@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   resources :accounts, only: :show
 
   resources :credits
+
+  resources :transfers
 end

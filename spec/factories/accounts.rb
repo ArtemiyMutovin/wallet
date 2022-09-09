@@ -5,6 +5,11 @@ FactoryBot.define do
 
   factory :account do
     number
-    balance { 100 }
+    balance { 1000 }
+
+    trait :receiver_account do
+      number
+      balance { 500 }
+    end
   end
 end

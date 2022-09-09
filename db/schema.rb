@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_02_073608) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_07_092145) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "accounts", force: :cascade do |t|
-    t.integer "number"
+    t.string "number"
     t.integer "balance", default: 0
     t.bigint "user_id"
     t.datetime "created_at", null: false
@@ -33,6 +33,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_02_073608) do
     t.datetime "updated_at", null: false
     t.index ["account_id"], name: "index_credits_on_account_id"
     t.index ["user_id"], name: "index_credits_on_user_id"
+  end
+
+  create_table "transfers", force: :cascade do |t|
+    t.integer "amount"
+    t.string "cipher"
+    t.bigint "sender_id", null: false
+    t.bigint "receiver_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["receiver_id"], name: "index_transfers_on_receiver_id"
+    t.index ["sender_id"], name: "index_transfers_on_sender_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -62,4 +73,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_02_073608) do
   add_foreign_key "accounts", "users"
   add_foreign_key "credits", "accounts"
   add_foreign_key "credits", "users"
+  add_foreign_key "transfers", "users", column: "receiver_id"
+  add_foreign_key "transfers", "users", column: "sender_id"
 end

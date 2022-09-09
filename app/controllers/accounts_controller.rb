@@ -5,6 +5,6 @@ class AccountsController < ApplicationController
 
   def show
     @credits = current_user.credits
+    @transfers = current_user.transfers
   end
-
 end

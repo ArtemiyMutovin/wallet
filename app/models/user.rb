@@ -13,15 +13,22 @@ class User < ApplicationRecord
 
   has_one :account, dependent: :destroy
   has_many :credits, dependent: :destroy
+  has_many :sender_transfers, class_name: 'Transfer', foreign_key: :sender_id, dependent: :destroy, inverse_of: :sender
+  has_many :receiver_transfers, class_name: 'Transfer', foreign_key: :receiver_id, dependent: :destroy,
+                                inverse_of: :receiver
 
   validates :email, uniqueness: { case_sensitive: false }
   validates :first_name, presence: true
   validates :last_name, presence: true
 
+  def transfers
+    Transfer.includes(%i[receiver sender]).where('sender_id = :id or receiver_id = :id', { id: id })
+  end
+
   private
 
   def set_account
-    Account.create(number: random, user_id: id)
+    Account.create(number: random.to_s, user_id: id)
   end
 
   def random

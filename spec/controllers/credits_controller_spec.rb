@@ -11,11 +11,11 @@ RSpec.describe CreditsController, type: :controller do
       get :new
     end
 
-    it 'assigns the requested question to @question' do
+    it 'assigns the requested credit to @credit' do
       expect(assigns(:credit)).to be_a_new(Credit)
     end
 
-    it 'renders show view' do
+    it 'renders new view' do
       expect(response).to render_template :new
     end
   end
@@ -33,7 +33,7 @@ RSpec.describe CreditsController, type: :controller do
 
       it 'redirects to show view' do
         post :create, params: { credit: { debts: 500, user_id: user, account_id: account } }
-        expect(response).to redirect_to root_path(assigns(:account))
+        expect(response).to render_template :show
       end
     end
 
