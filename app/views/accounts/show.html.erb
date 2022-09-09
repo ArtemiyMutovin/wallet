@@ -3,6 +3,10 @@
   <h2><%= link_to "Open new credits", new_credit_path(@account) %></h2>
 </div>
 
+<div>
+  <h2><%= link_to "Send money to other client", new_transfer_path(@account) %></h2>
+</div>
+
 <div class="account">
 <h2>Account number:  <%= current_user.account.number %></h2>
 <h2>Your balance:  <%= current_user.account.balance %></h2>

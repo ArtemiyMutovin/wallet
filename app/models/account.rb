@@ -10,4 +10,9 @@ class Account < ApplicationRecord
     self.balance += amount
     save
   end
+
+  def decrease_balance(amount)
+    self.balance -= amount
+    save
+  end
 end

@@ -22,4 +22,14 @@ RSpec.describe Account, type: :model do
       expect(account.balance).to eq 1100
     end
   end
+
+  describe 'decrease balance' do
+    let(:user) { create(:user) }
+    let(:account) { create(:account, user: user) }
+
+    it 'delete amount from account balance' do
+      account.decrease_balance(100)
+      expect(account.balance).to eq 900
+    end
+  end
 end
