@@ -3,7 +3,6 @@ FactoryBot.define do
     debts { 1000 }
     active { true }
 
-
     trait :invalid do
       debts { nil }
       active { nil }

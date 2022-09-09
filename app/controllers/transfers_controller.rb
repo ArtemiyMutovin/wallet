@@ -2,7 +2,7 @@ class TransfersController < ApplicationController
   before_action :authenticate_user!
 
   def new
-    @transfer = Transfer.new
+    @transfer = current_user.sender_transfers.new
   end
 
   def create

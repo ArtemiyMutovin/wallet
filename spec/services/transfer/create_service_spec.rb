@@ -8,7 +8,8 @@ RSpec.describe Transfer::CreateService do
 
   context 'with valid attributes' do
     it 'create transfer' do
-      service_response = described_class.new(amount: 100, account_number: receiver_account.number, sender_account: account).call
+      service_response = described_class.new(amount: 100, account_number: receiver_account.number,
+                                             sender_account: account).call
       expect(service_response.transfer).not_to eq(nil)
       expect(service_response.errors).to eq([])
     end

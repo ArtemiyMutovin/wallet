@@ -19,7 +19,7 @@ RSpec.describe Account, type: :model do
 
     it 'add credits in account balance' do
       account.increase_balance(1000)
-      expect(account.balance).to eq 1100
+      expect(account.balance).to eq 2000
     end
   end
 
