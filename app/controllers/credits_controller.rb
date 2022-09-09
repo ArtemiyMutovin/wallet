@@ -11,7 +11,7 @@ class CreditsController < ApplicationController
 
     if @credit.save
       account.increase_balance(@credit.debts)
-      redirect_to root_path(@account)
+      render :'credits/show'
     else
       render :new
     end

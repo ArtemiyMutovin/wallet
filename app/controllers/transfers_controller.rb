@@ -9,7 +9,7 @@ class TransfersController < ApplicationController
     result = transfer_create_service
 
     if result.errors.empty? && result.transfer.present?
-      redirect_to root_path(@account)
+      render :'transfers/show'
     else
       flash[:notice] = result.errors
       redirect_to new_transfer_path

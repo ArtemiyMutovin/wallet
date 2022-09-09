@@ -33,7 +33,7 @@ RSpec.describe CreditsController, type: :controller do
 
       it 'redirects to show view' do
         post :create, params: { credit: { debts: 500, user_id: user, account_id: account } }
-        expect(response).to redirect_to root_path(assigns(:account))
+        expect(response).to render_template :show
       end
     end
 
