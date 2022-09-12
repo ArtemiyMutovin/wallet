@@ -1,0 +1,10 @@
+<%= form_with model: @credit, data: {turbo: false}, local: true do |f| %>
+  <%= render 'shared/errors', resource: @credit  %>
+
+  <h2><p>
+    <%= f.label :debts %><br>
+    <%= f.number_field :debts %>
+  </p></h2><br>
+
+  <h3><p><%= f.submit %></p></h3>
+<% end %>

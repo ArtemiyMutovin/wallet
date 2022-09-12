@@ -1,0 +1,14 @@
+<%= form_with model: @transfer, data: {turbo: false}, local: true do |f| %>
+
+  <h2><p>
+    <%= f.label :amount %><br>
+    <%= f.number_field :amount %>
+  </p></h2><br>
+
+  <h2><p>
+    <%= f.label :cipher %><br>
+    <%= f.text_field :cipher %>
+  </p></h2><br>
+
+  <h3><p><%= f.submit %></p></h3>
+<% end %>

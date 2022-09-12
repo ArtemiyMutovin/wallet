@@ -1,0 +1,17 @@
+
+.nav {
+    text-align: left;
+    padding: 20px;
+    font-size: 160%;
+    border: 15px solid transparent;
+    border-image: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%) 20% / 1 / 0 stretch;
+    background-color: wheat;
+}
+
+.account {
+    text-align: center;
+}
+
+.credit {
+    text-align: right;
+}
