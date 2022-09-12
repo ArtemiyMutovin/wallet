@@ -41,6 +41,10 @@ gem 'rubocop-rails'
 gem 'rubocop-require_tools', '~> 0.1.2'
 gem 'rubocop-rspec'
 
+gem 'sidekiq'
+
+gem 'sinatra', require: false
+
 gem 'devise', '~> 4.0'
 
 group :development, :test do
