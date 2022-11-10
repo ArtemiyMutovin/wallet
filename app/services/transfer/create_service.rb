@@ -28,14 +28,16 @@ class Transfer::CreateService
   end
 
   def create_transfer!
-    @transfer = Transfer.new(
-      amount: amount,
-      cipher: account_number,
-      sender: sender_account.user,
-      receiver: receiver_account.user
-    )
+    Transfer.transaction do
+      @transfer = Transfer.new(
+        amount: amount,
+        cipher: account_number,
+        sender: sender_account.user,
+        receiver: receiver_account.user
+      )
 
-    @transfer.save! ? change_accounts_balance! : add_errors
+      @transfer.save! ? change_accounts_balance! : add_errors
+    end
   end
 
   def add_errors
@@ -43,7 +45,15 @@ class Transfer::CreateService
   end
 
   def change_accounts_balance!
+    prepare_accounts_for_update
     sender_account.decrease_balance(amount)
     receiver_account.increase_balance(amount)
+  end
+
+  def prepare_accounts_for_update
+    sender_account.lock!
+    receiver_account.lock!
+    sender_account.reload
+    receiver_account.reload
   end
 end
