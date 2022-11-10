@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_07_092145) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_10_190726) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "accounts", force: :cascade do |t|
     t.string "number"
-    t.integer "balance", default: 0
+    t.decimal "balance", default: "0.0"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -25,7 +25,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_07_092145) do
   end
 
   create_table "credits", force: :cascade do |t|
-    t.integer "debts", default: 0
+    t.decimal "debts", default: "0.0"
     t.boolean "active", default: true
     t.bigint "account_id"
     t.bigint "user_id"
@@ -36,7 +36,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_07_092145) do
   end
 
   create_table "transfers", force: :cascade do |t|
-    t.integer "amount"
+    t.decimal "amount"
     t.string "cipher"
     t.bigint "sender_id", null: false
     t.bigint "receiver_id", null: false
