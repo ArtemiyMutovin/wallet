@@ -47,6 +47,8 @@ gem 'sinatra', require: false
 
 gem 'devise', '~> 4.0'
 
+gem 'strong_migrations'
+
 group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails'

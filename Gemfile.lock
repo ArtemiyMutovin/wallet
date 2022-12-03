@@ -287,6 +287,8 @@ GEM
       sprockets (>= 3.0.0)
     stimulus-rails (1.1.0)
       railties (>= 6.0.0)
+    strong_migrations (1.4.0)
+      activerecord (>= 5.2)
     strscan (3.0.4)
     thor (1.2.1)
     tilt (2.0.11)
@@ -349,6 +351,7 @@ DEPENDENCIES
   sinatra
   sprockets-rails
   stimulus-rails
+  strong_migrations
   turbo-rails
   tzinfo-data
   web-console
